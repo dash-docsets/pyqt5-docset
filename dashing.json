@@ -1,0 +1,19 @@
+{
+    "name": "PyQt5",
+    "package": "pyqt5",
+    "index": "index.html",
+    "selectors": {
+        ".class": "Class",
+        ".function": "Function",
+        ".attribute": "Attribute",
+        ".enum": "Enum",
+        ".cmdoption": "Command",
+        ".method": "Method"
+    },
+    "ignore": [
+        "ABOUT"
+    ],
+    "icon32x32": "Python_and_Qt.png",
+    "allowJS": false,
+    "ExternalURL": ""
+}

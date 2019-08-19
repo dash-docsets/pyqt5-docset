@@ -1,0 +1,11 @@
+kind: pipeline
+name: PyQt5 Dash Docset generator
+
+steps:
+- name: PyQt5Docs
+  image: golang:stretch
+  environment:
+    GITHUB_TOKEN:
+      from_secret: GITHUB_TOKEN
+  commands:
+  - chmod +x PyQt5Docs.sh && bash ./PyQt5Docs.sh
