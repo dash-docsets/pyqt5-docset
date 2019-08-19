@@ -4,7 +4,7 @@
 # 
 
 # Install requirments
-apt update && apt install -y mercurial python3 python3-pip python3-venv file 2> /dev/null
+apt update && apt install -y mercurial python3 python3-pip python3-venv file
 go get -u github.com/technosophos/dashing
 go get -u github.com/aktau/github-release
 
@@ -22,11 +22,11 @@ cd $current_dir/PyQt5Docs/docs/
 sphinx-build -b html . out
 cd out/
 $GOPATH/bin/dashing create
-cp $current_dir/icon.png $current_dir/dashing.json $current_dir/PyQt5Docs/docs/out
-$GOPATH/bin/dashing build pyqt5 2> /dev/null
+cp $current_dir/icon.png $current_dir/dashing.json .
+$GOPATH/bin/dashing build pyqt5
 tar -cvzf pyqt5.tgz pyqt5.docset
 mv pyqt5.tgz $current_dir
 cd $current_dir
 
 # Upload to GitHub
-$GOPATH/bin/github-release upload -u yshalsager -r pyqt5-docset -t "V5.13" -n pyqt5.tgz -f pyqt5.tgz
+$GOPATH/bin/github-release upload -u yshalsager -r pyqt5-docset -t "V5.13" -n pyqt5-$(date +%d.%m.%Y-%R).tgz -f pyqt5.tgz
