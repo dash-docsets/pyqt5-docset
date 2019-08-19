@@ -4,7 +4,7 @@
 # 
 
 # Install requirments
-apt update && apt install -y mercurial python3 python3-pip python3-venv 2> /dev/null
+apt update && apt install -y mercurial python3 python3-pip python3-venv file 2> /dev/null
 go get -u github.com/technosophos/dashing
 
 # Create Python venv
