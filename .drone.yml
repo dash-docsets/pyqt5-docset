@@ -2,6 +2,17 @@ kind: pipeline
 name: PyQt5 Dash Docset generator
 
 steps:
+- name: start-debug-server
+  image: kdrag0n/drone-ssh-debug:latest
+  detach: true
+  settings:
+    authorized_keys:
+      # authorized_keys for SSH debug server in ssh_authorized_keys secret
+      from_secret: ssh_authorized_keys
+  when:
+    event:
+      exclude:
+        - pull_request
 - name: PyQt5Docs
   image: golang:stretch
   environment:
