@@ -20,3 +20,21 @@ steps:
       from_secret: GITHUB_TOKEN
   commands:
   - chmod +x PyQt5Docs.sh && bash ./PyQt5Docs.sh
+- name: wait_for_debug
+  image: golang:stretch
+
+  environment:
+    # Amount of time to wait for debugging
+    # This is intended to serve as a brief preliminary analysis, not a
+    # full-fledged post-mortem analysis session
+    DEBUG_TIME: 10m
+
+  commands:
+    - sleep $DEBUG_TIME
+
+  when:
+    status:
+      - failure
+    event:
+      exclude:
+        - pull_request
