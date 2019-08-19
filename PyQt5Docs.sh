@@ -26,7 +26,7 @@ cp $current_dir/icon.png $current_dir/dashing.json $current_dir/PyQt5Docs/docs/o
 $GOPATH/bin/dashing build pyqt5 2> /dev/null
 tar -cvzf pyqt5.tgz pyqt5.docset
 mv pyqt5.tgz $current_dir
-FILE=$current_dir/pyqt5.tgz
+cd $current_dir
 
 # Upload to GitHub
-$GOPATH/bin/github-release upload -u yshalsager -r pyqt5-docset -t "V5.13" -n $FILE -f $FILE
+$GOPATH/bin/github-release upload -u yshalsager -r pyqt5-docset -t "V5.13" -n pyqt5.tgz -f pyqt5.tgz
